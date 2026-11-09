@@ -4,13 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Portfolio de Jules, étudiant en informatique à Ynov Aix Campus.">
-    <meta name="theme-color" content="#0a0a0c">
+    <meta name="theme-color" content="#f6f5f1">
     <title>Jules — Portfolio</title>
-
-    <!-- Archivo pour les titres, JetBrains Mono pour les informations techniques. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
   </head>
@@ -19,16 +14,16 @@
 
     <header class="site-header">
       <a class="brand" href="#accueil" aria-label="Jules, revenir en haut de page">
-        <span class="brand__name">Jules</span>
-        <span class="brand__caption">Portfolio · 2026 / 2027</span>
+        <span class="brand__initial" aria-hidden="true">J.</span>
+        <span class="brand__text">Jules<br>Portfolio · 2026 / 2027</span>
       </a>
 
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
 
       <nav class="site-nav" id="navigation-principale" aria-label="Navigation principale">
         <ul>
-          <li><a href="#projets">Projets</a></li>
           <li><a href="#apropos">À propos</a></li>
+          <li><a href="#projets">Projets</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -36,62 +31,66 @@
 
     <main id="contenu">
       <section class="intro" id="accueil" aria-labelledby="titre-principal">
-        <div class="intro__main">
-          <p class="eyebrow">Informatique · Ynov Aix Campus</p>
-          <h1 id="titre-principal">Jules<span>.</span></h1>
-          <p class="intro__role">Étudiant en informatique à Ynov Aix Campus.</p>
-          <p class="intro__copy">J’apprends le HTML, le CSS, le JavaScript et le Golang. Je présente ici un projet que j’ai personnalisé et exploité en ligne.</p>
-          <a class="button" href="#projets">Découvrir Voilaxie Music <span aria-hidden="true">↘</span></a>
+        <p class="eyebrow">Étudiant · B1 · Ynov Aix Campus</p>
+        <h1 id="titre-principal">Jules<span>.</span></h1>
+        <p class="intro__summary">J’apprends le HTML, le CSS, le JavaScript et le Golang. Je présente ici un projet que j’ai personnalisé et exploité en ligne.</p>
+        <div class="intro__actions">
+          <a class="button" href="#projets">Découvrir Voilaxie Music <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="mailto:jules.faron@ynov.com">M’écrire</a>
         </div>
-
-        <aside class="intro-note" aria-label="Année de formation">
-          <span class="intro-note__label">Formation</span>
-          <strong>B1</strong>
-          <span>2026 — 2027</span>
-        </aside>
       </section>
 
-      <section class="section projects-section" id="projets" aria-labelledby="titre-projets">
+      <section class="section" id="apropos" aria-labelledby="titre-apropos">
         <header class="section-heading">
-          <p class="eyebrow">01 / Projets</p>
-          <h2 id="titre-projets">Étude de cas</h2>
+          <p class="eyebrow">01 · Profil</p>
+          <h2 id="titre-apropos">À propos</h2>
         </header>
+        <div class="section-content">
+          <p>Je suis en première année d’informatique à Ynov Aix Campus.</p>
+          <p>[À COMPLÉTER : quelques phrases sur mon parcours et ce que je souhaite montrer ici.]</p>
+        </div>
+      </section>
 
-        <!-- Pour ajouter un projet plus tard, dupliquer l'article .case-study. -->
-        <article class="case-study" aria-labelledby="titre-voilaxie">
-          <figure class="project-banner">
-            <img
-              src="./assets/Banner.gif"
-              alt="Bannière Voilaxie Music"
-              width="2040"
-              height="720"
-              loading="lazy"
-              decoding="async">
-          </figure>
+      <section class="section" id="projets" aria-labelledby="titre-projets">
+        <header class="section-heading">
+          <p class="eyebrow">02 · Réalisations</p>
+          <h2 id="titre-projets">Projets</h2>
+        </header>
+        <div class="section-content section-content--wide">
+          <!-- Pour ajouter un projet plus tard, dupliquer l'article .case-study. -->
+          <article class="case-study" aria-labelledby="titre-voilaxie">
+            <figure class="project-banner">
+              <img
+                src="./assets/Banner.gif"
+                alt="Bannière Voilaxie Music"
+                width="2040"
+                height="720"
+                loading="lazy"
+                decoding="async">
+            </figure>
 
-          <header class="project-heading">
-            <div>
-              <p class="eyebrow">Bot musical Discord</p>
-              <h3 id="titre-voilaxie">Voilaxie Music</h3>
-            </div>
-            <img
-              class="project-heading__logo"
-              src="./assets/Voilaxie.gif"
-              alt="Logo Voilaxie Music"
-              width="1400"
-              height="1400"
-              loading="lazy"
-              decoding="async">
-          </header>
+            <header class="project-heading">
+              <div>
+                <p class="eyebrow">Étude de cas · Bot musical Discord</p>
+                <h3 id="titre-voilaxie">Voilaxie Music</h3>
+              </div>
+              <img
+                class="project-heading__logo"
+                src="./assets/Voilaxie.gif"
+                alt="Logo Voilaxie Music"
+                width="1400"
+                height="1400"
+                loading="lazy"
+                decoding="async">
+            </header>
 
-          <ul class="project-facts" aria-label="Informations sur le projet">
-            <li>Archivé</li>
-            <li>2025</li>
-            <li>Environ 284 serveurs</li>
-          </ul>
+            <ul class="project-facts" aria-label="Informations sur le projet">
+              <li>Archivé</li>
+              <li>2025</li>
+              <li>Environ 284 serveurs</li>
+            </ul>
 
-          <div class="case-study__layout">
-            <div class="case-study__main">
+            <div class="case-study">
               <section class="project-section" aria-labelledby="titre-contexte">
                 <h4 id="titre-contexte">Contexte</h4>
                 <p>[À COMPLÉTER : pourquoi j’ai lancé ce projet.]</p>
@@ -121,11 +120,9 @@
                   decoding="async">
                 <figcaption>Interface Discord avec les boutons de contrôle du lecteur.</figcaption>
               </figure>
-            </div>
 
-            <aside class="case-study__aside" aria-label="Détails techniques du projet">
-              <section class="project-section" aria-labelledby="titre-technologies">
-                <h4 id="titre-technologies">Technologies</h4>
+              <section class="project-section">
+                <h4>Technologies</h4>
                 <ul class="technology-list">
                   <li>Node.js</li>
                   <li>discord.js</li>
@@ -135,13 +132,13 @@
                 </ul>
               </section>
 
-              <section class="project-section" aria-labelledby="titre-apprentissages">
-                <h4 id="titre-apprentissages">Ce que j’en retiens</h4>
+              <section class="project-section">
+                <h4>Ce que j’en retiens</h4>
                 <p>[À COMPLÉTER : exploitation d’un service en production, gestion de plusieurs nœuds audio, gestion des secrets avec des variables d’environnement…]</p>
               </section>
 
-              <section class="project-section" aria-labelledby="titre-archive">
-                <h4 id="titre-archive">Pourquoi il est arrêté</h4>
+              <section class="project-section">
+                <h4>Pourquoi il est arrêté</h4>
                 <p>[À COMPLÉTER : pourquoi le projet est arrêté.]</p>
               </section>
 
@@ -151,27 +148,17 @@
                 <span>[À COMPLÉTER : nom du dépôt]</span>
               </p>
               <!-- Quand le dépôt existe, lier « Voir le code » à https://github.com/Juuuules83/NOM-DU-DEPOT. -->
-            </aside>
-          </div>
-        </article>
-      </section>
-
-      <section class="section about-section" id="apropos" aria-labelledby="titre-apropos">
-        <header class="section-heading">
-          <p class="eyebrow">02 / À propos</p>
-          <h2 id="titre-apropos">Quelques mots</h2>
-        </header>
-        <div class="section-copy">
-          <p>[À COMPLÉTER : quelques phrases sur mon parcours et ce que je souhaite montrer ici.]</p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="section contact-section" id="contact" aria-labelledby="titre-contact">
+      <section class="section" id="contact" aria-labelledby="titre-contact">
         <header class="section-heading">
-          <p class="eyebrow">03 / Contact</p>
+          <p class="eyebrow">03 · Contact</p>
           <h2 id="titre-contact">Me contacter</h2>
         </header>
-        <div class="section-copy">
+        <div class="section-content">
           <ul class="contact-list">
             <li>
               <span>E-mail</span>
@@ -191,8 +178,8 @@
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="#accueil">Jules</a>
-      <p>© <span id="annee">2026</span> · Portfolio personnel</p>
+      <a class="site-footer__top" href="#accueil">Retour en haut ↑</a>
+      <p>Jules · Portfolio personnel · <span id="annee">2026</span></p>
     </footer>
   </body>
 </html>
