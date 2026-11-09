@@ -17,7 +17,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 1.5rem;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
@@ -190,7 +190,7 @@ main,
 }
 
 .intro {
-  padding-block: clamp(4.5rem, 10vw, 7rem);
+  padding-block: clamp(3rem, 6vw, 4.5rem);
   border-bottom: 1px solid var(--line-strong);
 }
 
@@ -263,12 +263,12 @@ main,
 
 .section {
   display: block;
-  padding-block: clamp(3.5rem, 8vw, 6rem);
+  padding-block: clamp(2.25rem, 5vw, 3.5rem);
   border-bottom: 1px solid var(--line-strong);
 }
 
 .section-heading {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .section-heading h2 {
@@ -281,11 +281,63 @@ main,
 
 .section-content {
   max-width: 45rem;
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
 }
 
 .section-content--wide {
   max-width: none;
+}
+
+.project-index {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  margin-bottom: 0.85rem;
+  border-block: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.project-index ul {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.project-index li {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.project-index a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 0.55rem 0.2rem;
+  border-bottom: 2px solid transparent;
+  color: var(--ink);
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.project-index a span {
+  color: var(--accent);
+  font-family: var(--font-meta);
+  font-size: 0.66rem;
+}
+
+.project-index a:hover,
+.project-index a:focus-visible,
+.project-index a.is-active,
+.project-index a[aria-current="location"] {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
 }
 
 .section-content > p {
@@ -294,7 +346,8 @@ main,
 
 .case-study {
   border-top: 1px solid var(--ink);
-  padding-top: 1.5rem;
+  padding-top: 1rem;
+  scroll-margin-top: 4.5rem;
 }
 
 .project-banner {
@@ -313,7 +366,7 @@ main,
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-block: 1.5rem 1.1rem;
+  padding-block: 0.85rem 0.75rem;
 }
 
 .project-heading h3 {
@@ -336,7 +389,7 @@ main,
   flex-wrap: wrap;
   gap: 0 1.25rem;
   margin: 0;
-  padding: 0.8rem 0;
+  padding: 0.55rem 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   color: var(--accent);
@@ -347,11 +400,11 @@ main,
 }
 
 .case-study {
-  max-width: 52rem;
+  max-width: 64rem;
 }
 
 .project-section {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }
 
 .project-section h4 {
@@ -361,7 +414,7 @@ main,
 }
 
 .project-section p {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.65rem;
 }
 
 .project-section p:last-child {
@@ -377,7 +430,7 @@ main,
 
 .feature-list li,
 .technology-list li {
-  padding: 0.55rem 0;
+  padding: 0.4rem 0;
   border-top: 1px solid var(--line);
 }
 
@@ -400,7 +453,7 @@ main,
 
 .controls-figure {
   width: min(100%, 27.5rem);
-  margin: 2rem 0 0;
+  margin: 1.25rem 0 0;
 }
 
 .controls-figure img {
@@ -417,8 +470,8 @@ main,
 }
 
 .project-credit {
-  margin: 2rem 0 0.75rem;
-  padding-top: 1rem;
+  margin: 1.25rem 0 0.65rem;
+  padding-top: 0.75rem;
   border-top: 1px solid var(--line);
   font-size: 0.85rem;
 }
@@ -538,11 +591,11 @@ main,
   }
 
   .section-heading {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.9rem;
   }
 
   .project-heading {
-    padding-block: 2rem 1.5rem;
+    padding-block: 1rem 0.8rem;
   }
 
   .project-heading h3 {

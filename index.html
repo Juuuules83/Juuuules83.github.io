@@ -55,9 +55,16 @@
           <p class="eyebrow">02 · Réalisations</p>
           <h2 id="titre-projets">Projets</h2>
         </header>
+        <!-- Ajoute ici un lien pour chaque projet, en reprenant l'id de son article. -->
+        <nav class="project-index" aria-label="Navigation entre les projets">
+          <ul>
+            <li><a href="#voilaxie" aria-current="location"><span>01</span> Voilaxie Music</a></li>
+            <!-- Exemple pour le suivant : <li><a href="#mon-projet"><span>02</span> Mon projet</a></li> -->
+          </ul>
+        </nav>
         <div class="section-content section-content--wide">
-          <!-- Pour ajouter un projet plus tard, dupliquer l'article .case-study. -->
-          <article class="case-study" aria-labelledby="titre-voilaxie">
+          <!-- Pour ajouter un projet, duplique l'article et donne-lui un id unique. -->
+          <article class="case-study" id="voilaxie" aria-labelledby="titre-voilaxie">
             <figure class="project-banner">
               <img
                 src="./assets/Banner.gif"
@@ -81,7 +88,7 @@
               <li>Environ 300 serveurs</li>
             </ul>
 
-            <div class="case-study">
+            <div class="case-study__content">
               <section class="project-section" aria-labelledby="titre-contexte">
                 <h4 id="titre-contexte">Contexte</h4>
                 <p>Tout est parti d’un serveur Discord entre amis. On voulait écouter de la musique ensemble et on avait ajouté plusieurs bots musicaux. Le problème : peu d’options, peu de plateformes prises en charge, des fonctions importantes payantes, un son de mauvaise qualité, des bugs. Et les bots les plus connus n’étaient pas intuitifs.
@@ -126,8 +133,9 @@ J’ai donc lancé Voilaxie avec un ami : un bot gratuit, de bonne qualité, sim
               <section class="project-section">
                 <h4>Pourquoi il est arrêté</h4>
                 <p>J’ai arrêté Voilaxie après un désaccord avec la personne qui m’aidait à le développer. Nous n’avions pas la même façon de travailler : des décisions prises sans concertation, une identité visuelle qui n’était plus respectée. J’ai mis fin à la collaboration et le projet s’est arrêté. J’en retiens qu’il faut fixer des règles de travail claires dès le départ : qui décide de quoi, et qui valide l’identité du projet.</p>
-              
-              <section class="project-section"></section>
+              </section>
+
+              <section class="project-section">
                 <h4>Prochaine étape</h4>
                 <p>Je compte relancer Voilaxie sur de meilleures bases, avec la qualité qui a toujours été la sienne : un site web connecté à Discord pour contrôler le bot de son serveur, comme un Spotify collectif, une application directement intégrée à Discord, et un usage maximal des nouveautés de la plateforme.</p>
               </section>
