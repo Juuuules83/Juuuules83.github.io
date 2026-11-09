@@ -15,6 +15,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: 1.5rem;
 }
 
@@ -114,10 +115,11 @@ main,
 
 .site-nav a,
 .text-link {
+  display: inline-block;
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 0.25em;
-  transition: color 150ms ease, text-decoration-color 150ms ease;
+  transition: color 180ms ease, text-decoration-color 180ms ease, transform 180ms ease;
 }
 
 .site-nav a {
@@ -130,6 +132,7 @@ main,
 .text-link:focus-visible {
   color: var(--accent);
   text-decoration-color: currentColor;
+  transform: translateY(-1px);
 }
 
 .menu-toggle {
@@ -186,13 +189,18 @@ main,
   color: var(--paper);
   font-size: 0.9rem;
   text-decoration: none;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .button:hover,
 .button:focus-visible {
   background: transparent;
   color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
 }
 
 .text-link {
@@ -361,6 +369,13 @@ main,
     font-family: var(--font-meta);
     font-size: 0.68rem;
     cursor: pointer;
+    transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+  }
+
+  .js-ready .menu-toggle:hover,
+  .js-ready .menu-toggle[aria-expanded="true"] {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .site-nav {
@@ -383,11 +398,23 @@ main,
   }
 
   .js-ready .site-nav {
-    display: none;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.35rem);
+    transition: max-height 260ms ease, opacity 180ms ease, transform 180ms ease, padding-top 180ms ease, visibility 0s linear 260ms;
   }
 
   .js-ready .site-nav.is-open {
-    display: block;
+    max-height: 20rem;
+    padding-top: 0.25rem;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: max-height 260ms ease, opacity 180ms ease, transform 180ms ease, padding-top 180ms ease, visibility 0s;
   }
 
 }
@@ -409,9 +436,14 @@ main,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
   }
 }
