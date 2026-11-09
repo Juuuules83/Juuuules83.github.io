@@ -64,7 +64,9 @@
           <h2 id="titre-apropos">À propos</h2>
         </header>
         <div class="section-content">
-          <p>Étudiant en première année de Bachelor Informatique à Ynov Aix Campus, après un bac STI2D. J’ai découvert la communication, l’automatisme et le secteur bancaire lors de mes expériences professionnelles, ce qui m’a donné de l’autonomie et le goût du travail en équipe. J’apprends en pratiquant : je préfère construire des projets concrets plutôt que rester sur la théorie.</p>
+          <p>Je suis en première année de Bachelor Informatique à Ynov Aix Campus, après un bac STI2D. J’apprends en pratiquant et je m’intéresse à la programmation, au développement web et à la conception d’outils utiles.</p>
+          <p>J’ai conçu et développé une plateforme de billetterie et de gestion pour la Maison des Lycéens de mon ancien établissement. J’ai aussi développé Voilaxie Music avec un ami, un bot musical Discord qui a réuni près de 300 serveurs.</p>
+          <p>J’aime partir d’un besoin concret, construire une solution, puis l’améliorer au fil des retours.</p>
         </div>
       </section>
 
@@ -77,7 +79,7 @@
         <nav class="project-index" aria-label="Navigation entre les projets">
           <ul>
             <li><a href="#voilaxie" aria-current="location"><span>01</span> Voilaxie Music</a></li>
-            <!-- Exemple pour le suivant : <li><a href="#mon-projet"><span>02</span> Mon projet</a></li> -->
+            <li><a href="#mdl-janetti"><span>02</span> MDL Janetti</a></li>
           </ul>
         </nav>
         <div class="section-content section-content--wide">
@@ -159,6 +161,92 @@ J’ai donc lancé Voilaxie avec un ami : un bot gratuit, de bonne qualité, sim
               </section>
 
               <!-- Quand le dépôt existe, lier « Voir le code » à https://github.com/Juuuules83/NOM-DU-DEPOT. -->
+            </div>
+          </article>
+
+          <article class="case-study" id="mdl-janetti" aria-labelledby="titre-mdl-janetti">
+            <figure class="project-banner project-banner--mdl">
+              <img
+                src="./assets/mdl-janetti-logo.png"
+                alt="Logo de la Maison des Lycéens"
+                width="900"
+                height="900"
+                loading="lazy"
+                decoding="async">
+              <figcaption>
+                <span>Maison des Lycéens</span>
+                <span>Lycée Maurice Janetti · 2026</span>
+              </figcaption>
+            </figure>
+
+            <header class="project-heading">
+              <div>
+                <p class="eyebrow">Étude de cas · Application web</p>
+                <h3 id="titre-mdl-janetti">MDL Janetti</h3>
+              </div>
+            </header>
+
+            <ul class="project-facts" aria-label="Informations sur le projet MDL Janetti">
+              <li>Billetterie & gestion</li>
+              <li>2026</li>
+              <li>Conception & développement</li>
+            </ul>
+
+            <div class="case-study__content">
+              <section class="project-section" aria-labelledby="titre-contexte-mdl">
+                <h4 id="titre-contexte-mdl">Contexte</h4>
+                <p>Pour le bal du lycée, l’équipe de la Maison des Lycéens devait gérer les ventes et les entrées tout en coordonnant l’organisation. J’ai conçu une plateforme interne pour réunir ces opérations au même endroit.</p>
+              </section>
+
+              <section class="project-section" aria-labelledby="titre-objectif-mdl">
+                <h4 id="titre-objectif-mdl">Objectif</h4>
+                <p>Créer un outil unique pour gérer la billetterie, contrôler les billets à l’entrée et simplifier le travail de l’équipe organisatrice.</p>
+              </section>
+
+              <section class="project-section" aria-labelledby="titre-realisations-mdl">
+                <h4 id="titre-realisations-mdl">Réalisation</h4>
+                <p>J’ai développé l’interface, les routes serveur et la base de données. La plateforme réunit la gestion des ventes, le contrôle d’accès et plusieurs outils internes, avec des rôles adaptés aux responsabilités de l’équipe.</p>
+              </section>
+
+              <section class="project-section" aria-labelledby="titre-fonctionnalites-mdl">
+                <h4 id="titre-fonctionnalites-mdl">Fonctionnalités principales</h4>
+                <dl class="feature-overview">
+                  <div>
+                    <dt>Billetterie & contrôle</dt>
+                    <dd>Création de billets avec tarif et statut ; tarifs adhérents, non-adhérents, gratuits et en prévente ; invités et accompagnateurs. Envoi et renvoi par e-mail avec suivi des ouvertures et clics. Les QR codes uniques servent à valider ou refuser une entrée ; chaque passage garde l’identité du contrôleur. L’historique conserve aussi les billets supprimés.</dd>
+                  </div>
+                  <div>
+                    <dt>Comptes & administration</dt>
+                    <dd>Inscriptions validées, rôles superadministrateur, organisateur et encadrant, gestion des adhérents et liste noire. L’équipe peut consulter les historiques, régler les tarifs et exporter des données vers Excel.</dd>
+                  </div>
+                  <div>
+                    <dt>Coordination interne</dt>
+                    <dd>Notes partagées avec réponses, mentions et notifications, listes de tâches interactives et pièces jointes.</dd>
+                  </div>
+                  <div>
+                    <dt>Assistance</dt>
+                    <dd>Demandes d’aide suivies par priorité et statut, attribuées à un membre de l’équipe, avec échanges et pièces jointes.</dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="project-section" aria-labelledby="titre-architecture-mdl">
+                <h4 id="titre-architecture-mdl">Architecture technique</h4>
+                <p>L’interface en HTML, CSS et JavaScript communique avec des routes API Express. Le serveur Node.js utilise MySQL / MariaDB via mysql2. Les mots de passe sont hachés avec bcrypt et les comptes s’appuient sur des sessions.</p>
+                <ul class="technology-list" aria-label="Technologies utilisées pour MDL Janetti">
+                  <li>Node.js · Express 5</li>
+                  <li>HTML5 · CSS3 · JavaScript</li>
+                  <li>MySQL / MariaDB · mysql2</li>
+                  <li>bcrypt · express-session</li>
+                  <li>Nodemailer · qrcode · ExcelJS</li>
+                  <li>Helmet · express-rate-limit</li>
+                </ul>
+              </section>
+
+              <section class="project-section" aria-labelledby="titre-resultat-mdl">
+                <h4 id="titre-resultat-mdl">Résultat</h4>
+                <p>La MDL dispose d’un espace commun pour préparer la billetterie, vérifier les entrées et coordonner son équipe. J’ai construit l’outil autour des besoins concrets de l’organisation.</p>
+              </section>
             </div>
           </article>
         </div>
