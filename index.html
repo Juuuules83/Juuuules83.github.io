@@ -73,19 +73,21 @@
           <p class="eyebrow">02 · Réalisations</p>
           <h2 id="titre-projets">Projets</h2>
         </header>
-        <!-- Ajoute ici un lien pour chaque projet, en reprenant l'id de son article. -->
-        <nav class="project-index" aria-label="Navigation entre les projets">
-          <ul>
-            <li><a href="#voilaxie" aria-current="location"><span>01</span> Voilaxie Music</a></li>
-            <li><a href="#mdl-janetti"><span>02</span> MDL Janetti</a></li>
-          </ul>
-        </nav>
+        <!-- Ces onglets affichent une seule étude de cas à la fois. -->
+        <div class="project-index" role="tablist" aria-label="Choisir une étude de cas" hidden>
+          <button class="project-index__tab" id="onglet-voilaxie" type="button" role="tab" aria-controls="voilaxie" aria-selected="true" tabindex="0">
+            <span>01</span> Voilaxie Music
+          </button>
+          <button class="project-index__tab" id="onglet-mdl-janetti" type="button" role="tab" aria-controls="mdl-janetti" aria-selected="false" tabindex="-1">
+            <span>02</span> MDL Janetti
+          </button>
+        </div>
         <div class="section-content section-content--wide">
-          <!-- Pour ajouter un projet, duplique l'article et donne-lui un id unique. -->
+          <!-- Pour ajouter un projet, duplique un article et ajoute-lui un onglet correspondant. -->
           <article class="case-study" id="voilaxie" aria-labelledby="titre-voilaxie">
             <figure class="project-banner">
               <img
-                src="./assets/Banner.gif"
+                src="./assets/voilaxie/Banner.gif"
                 alt="Bannière Voilaxie Music"
                 width="2040"
                 height="720"
@@ -128,7 +130,7 @@ J’ai donc lancé Voilaxie avec un ami : un bot gratuit, de bonne qualité, sim
 
               <figure class="controls-figure">
                 <img
-                  src="./assets/voilaxie-controls.png"
+                  src="./assets/voilaxie/voilaxie-controls.png"
                   alt="Lecteur Voilaxie dans Discord, sans piste en cours, avec la bannière du bot et les boutons de contrôle visibles."
                   width="440"
                   height="730"

@@ -37,36 +37,69 @@ if (boutonMenu && navigation) {
   });
 }
 
-// Repère le projet affiché et souligne son lien dans l'index horizontal.
-const liensProjet = [...document.querySelectorAll(".project-index a[href^='#']")];
-const articlesProjet = liensProjet
-  .map((lien) => document.querySelector(lien.getAttribute("href")))
+// Les onglets remplacent l'étude de cas affichée sans naviguer vers une ancre.
+const selecteurProjets = document.querySelector(".project-index[role='tablist']");
+const ongletsProjet = [...document.querySelectorAll(".project-index [role='tab']")];
+const panneauxProjet = ongletsProjet
+  .map((onglet) => document.getElementById(onglet.getAttribute("aria-controls")))
   .filter(Boolean);
 
-if (liensProjet.length && articlesProjet.length && "IntersectionObserver" in window) {
-  const marquerProjetActif = (article) => {
-    liensProjet.forEach((lien) => {
-      const estActif = lien.getAttribute("href") === `#${article.id}`;
-      lien.classList.toggle("is-active", estActif);
+if (selecteurProjets && ongletsProjet.length && panneauxProjet.length === ongletsProjet.length) {
+  const sectionProjets = document.querySelector("#projets");
 
-      if (estActif) {
-        lien.setAttribute("aria-current", "location");
-      } else {
-        lien.removeAttribute("aria-current");
-      }
+  panneauxProjet.forEach((panneau, index) => {
+    panneau.setAttribute("role", "tabpanel");
+    panneau.setAttribute("aria-labelledby", ongletsProjet[index].id);
+    panneau.tabIndex = 0;
+  });
+
+  const afficherProjet = (onglet, replacerEnHaut = false) => {
+    const panneauActif = onglet.getAttribute("aria-controls");
+
+    ongletsProjet.forEach((autreOnglet) => {
+      const estActif = autreOnglet === onglet;
+      autreOnglet.setAttribute("aria-selected", String(estActif));
+      autreOnglet.tabIndex = estActif ? 0 : -1;
     });
+
+    panneauxProjet.forEach((panneau) => {
+      panneau.hidden = panneau.id !== panneauActif;
+    });
+
+    if (replacerEnHaut && sectionProjets) {
+      const mouvementReduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      sectionProjets.scrollIntoView({ behavior: mouvementReduit ? "auto" : "smooth", block: "start" });
+    }
   };
 
-  const observateurProjets = new IntersectionObserver((entrees) => {
-    const projetVisible = entrees
-      .filter((entree) => entree.isIntersecting)
-      .sort((a, b) => {
-        const repere = window.innerHeight * 0.3;
-        return Math.abs(a.boundingClientRect.top - repere) - Math.abs(b.boundingClientRect.top - repere);
-      })[0];
+  ongletsProjet.forEach((onglet) => {
+    onglet.addEventListener("click", () => afficherProjet(onglet, true));
+  });
 
-    if (projetVisible) marquerProjetActif(projetVisible.target);
-  }, { rootMargin: "-140px 0px -220px 0px", threshold: 0 });
+  selecteurProjets.addEventListener("keydown", (evenement) => {
+    const ongletActif = ongletsProjet.indexOf(document.activeElement);
+    let prochainIndex = ongletActif;
 
-  articlesProjet.forEach((article) => observateurProjets.observe(article));
+    if (evenement.key === "ArrowRight" || evenement.key === "ArrowDown") {
+      prochainIndex = (ongletActif + 1) % ongletsProjet.length;
+    } else if (evenement.key === "ArrowLeft" || evenement.key === "ArrowUp") {
+      prochainIndex = (ongletActif - 1 + ongletsProjet.length) % ongletsProjet.length;
+    } else if (evenement.key === "Home") {
+      prochainIndex = 0;
+    } else if (evenement.key === "End") {
+      prochainIndex = ongletsProjet.length - 1;
+    } else {
+      return;
+    }
+
+    evenement.preventDefault();
+    const prochainOnglet = ongletsProjet[prochainIndex];
+    afficherProjet(prochainOnglet, true);
+    prochainOnglet.focus();
+  });
+
+  const ongletInitial = ongletsProjet.find((onglet) => onglet.getAttribute("aria-selected") === "true")
+    || ongletsProjet[0];
+  afficherProjet(ongletInitial);
+  selecteurProjets.hidden = false;
 }
