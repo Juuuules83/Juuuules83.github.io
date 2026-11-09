@@ -527,7 +527,7 @@ main,
 }
 
 .technology-list li::before {
-  content: "+";
+  content: "-";
   margin-right: 0.6rem;
   color: var(--accent);
 }
